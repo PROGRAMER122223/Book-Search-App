@@ -76,11 +76,11 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 
-const startApolloServer = async () => {
+const startApolloServer = async (typeDefs,resolvers) => {
   await server.start();
   // integrate our Apollo server with the Express application as middleware
   server.applyMiddleware({ app });
-}
+
 
   // if we're in production, serve client/build as static assets
   if (process.env.NODE_ENV === 'production') {
@@ -103,4 +103,4 @@ const startApolloServer = async () => {
   });
 };
 
-startApolloServer();
+startApolloServer(typeDefs,resolvers);

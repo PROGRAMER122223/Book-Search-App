@@ -91,7 +91,7 @@ const startApolloServer = async (typeDefs,resolvers) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
 
-  startAppolo();
+  //startAppolo();
   db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
